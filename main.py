@@ -9,6 +9,10 @@ app = FastAPI()
 
 
 # Define a WebSocket endpoint
+@app.get("/")
+async def homepage():
+    data = json.dumps({'hello': 'world'})
+    return data
 
 
 @app.websocket("/ws_limb")
