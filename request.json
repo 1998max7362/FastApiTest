@@ -1,0 +1,26 @@
+{
+    "poId": 0,
+    "EquipmentList": [
+      {
+        "WIICRowID": 2,
+        "CodeNFS": "string",
+        "wantedDate": "2023-07-06T16:39:32.937Z",
+        "readyDate": "2023-07-06T16:39:32.937Z",
+        "reservedDate": "2023-07-06T16:39:32.937Z",
+        "onWayDate": "2023-07-06T16:39:32.937Z",
+        "purchaseDate": "2023-07-06T16:39:32.937Z",
+        "requiredDate": "2023-07-06T16:39:32.937Z",
+        "issuedDate": "2023-07-06T16:39:32.937Z",
+        "quantity": 0,
+        "equipmentType": "string",
+        "GFK": "string",
+        "WIICNumber": "string",
+        "WIICStatus": "string",
+        "wantedDeliveryDate": "2023-07-06T16:39:32.937Z",
+        "approvedDeliveryDate": "2023-07-06T16:39:32.937Z",
+        "issuedStock": "string",
+        "editDate": "2023-07-06T16:39:32.937Z",
+        "WIICDate": "2023-07-06T16:39:32.937Z"
+      }
+    ]
+  }

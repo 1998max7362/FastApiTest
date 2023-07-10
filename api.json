@@ -1,0 +1,230 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "WIIC to OFM",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/net-equipment": {
+      "post": {
+        "summary": "Post Equip",
+        "operationId": "post_equip_net_equipment_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "EqupmentItem": {
+        "title": "EqupmentItem",
+        "required": [
+          "WIICRowID",
+          "CodeNFS",
+          "wantedDate",
+          "readyDate",
+          "reservedDate",
+          "onWayDate",
+          "purchaseDate",
+          "requiredDate",
+          "issuedDate",
+          "quantity",
+          "equipmentType",
+          "GFK",
+          "WIICNumber",
+          "WIICStatus",
+          "wantedDeliveryDate",
+          "approvedDeliveryDate",
+          "issuedStock",
+          "editDate",
+          "WIICDate"
+        ],
+        "type": "object",
+        "properties": {
+          "WIICRowID": {
+            "title": "Wiicrowid",
+            "type": "integer"
+          },
+          "CodeNFS": {
+            "title": "Codenfs",
+            "type": "string"
+          },
+          "wantedDate": {
+            "title": "Wanteddate",
+            "type": "string",
+            "format": "date-time"
+          },
+          "readyDate": {
+            "title": "Readydate",
+            "type": "string",
+            "format": "date-time"
+          },
+          "reservedDate": {
+            "title": "Reserveddate",
+            "type": "string",
+            "format": "date-time"
+          },
+          "onWayDate": {
+            "title": "Onwaydate",
+            "type": "string",
+            "format": "date-time"
+          },
+          "purchaseDate": {
+            "title": "Purchasedate",
+            "type": "string",
+            "format": "date-time"
+          },
+          "requiredDate": {
+            "title": "Requireddate",
+            "type": "string",
+            "format": "date-time"
+          },
+          "issuedDate": {
+            "title": "Issueddate",
+            "type": "string",
+            "format": "date-time"
+          },
+          "quantity": {
+            "title": "Quantity",
+            "type": "integer"
+          },
+          "equipmentType": {
+            "title": "Equipmenttype",
+            "type": "string"
+          },
+          "GFK": {
+            "title": "Gfk",
+            "type": "string"
+          },
+          "WIICNumber": {
+            "title": "Wiicnumber",
+            "type": "string"
+          },
+          "WIICStatus": {
+            "title": "Wiicstatus",
+            "type": "string"
+          },
+          "wantedDeliveryDate": {
+            "title": "Wanteddeliverydate",
+            "type": "string",
+            "format": "date-time"
+          },
+          "approvedDeliveryDate": {
+            "title": "Approveddeliverydate",
+            "type": "string",
+            "format": "date-time"
+          },
+          "issuedStock": {
+            "title": "Issuedstock",
+            "type": "string"
+          },
+          "editDate": {
+            "title": "Editdate",
+            "type": "string",
+            "format": "date-time"
+          },
+          "WIICDate": {
+            "title": "Wiicdate",
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "HTTPValidationError": {
+        "title": "HTTPValidationError",
+        "type": "object",
+        "properties": {
+          "detail": {
+            "title": "Detail",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            }
+          }
+        }
+      },
+      "PostRequest": {
+        "title": "PostRequest",
+        "required": [
+          "poId",
+          "EquipmentList"
+        ],
+        "type": "object",
+        "properties": {
+          "poId": {
+            "title": "Poid",
+            "type": "integer"
+          },
+          "EquipmentList": {
+            "title": "Equipmentlist",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EqupmentItem"
+            }
+          }
+        }
+      },
+      "ValidationError": {
+        "title": "ValidationError",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "loc": {
+            "title": "Location",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            }
+          },
+          "msg": {
+            "title": "Message",
+            "type": "string"
+          },
+          "type": {
+            "title": "Error Type",
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
