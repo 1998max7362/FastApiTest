@@ -167,53 +167,73 @@ def messageLogicChanger(jsonMessage):
 
 
 
-fakeDeviceResponse = {
+fakeServerResponse = {
     "devices": [
-        {
-            "connected": True,
-            "devModel": "ESMD",
-            "SN": "111122",
-            "isRec": True,
-            "isDf": True,
-            "isScan": True,
-            "devAddress": "192.168.1.1",
-            "devMessagePort": 5555,
-            "localDataPort": 31001,
-            "dataProcAddr": "ws://192.168.1.2:30001",
-            "controlPanelAddr": "ws://192.168.1.2:30002",
-            "chartControlAddr": "ws://192.168.1.2:30003",
-            "eventsPanelAddr": "ws://192.168.1.2:30004",
-            "rawEventsAddr": "ws://192.168.1.2:30005"
+    {
+        "deviceInfo": {
+            "id": "289c3aa0-ae30-423d-b3b8-03a9109d2d91",
+            "model": "ESMD",
+            "antenna": "ADD107",
+            "serialNumber": "100100"
         },
-        {
-            "connected": True,
-            "devModel": "ESMD",
-            "SN": "222222",
-            "isRec": True,
-            "isDf": True,
-            "isScan": True,
-            "devAddress": "199.168.1.1",
-            "devMessagePort": 7777,
-            "localDataPort": 41001,
-            "dataProcAddr": "ws://192.168.1.2:30006",
-            "controlPanelAddr": "ws://192.168.1.2:30007",
-            "chartControlAddr": "ws://192.168.1.2:30008",
-            "eventsPanelAddr": "ws://192.168.1.2:30009",
-            "rawEventsAddr": "ws://192.168.1.2:30010"
+        "isRec": True,
+        "isDf": True,
+        "isPscan": True,
+        "devAddress": "172.17.75.1",
+        "devMessagePort": 5555,
+        "localDataPort": 31001,
+        "dataProcAddr": "ws://192.168.1.2:30001",
+        "controlPanelAddr": "ws://192.168.1.2:30002",
+        "chartControlAddr": "ws://192.168.1.2:30003",
+        "eventsPanelAddr": "ws://192.168.1.2:30004",
+        "rawEventsAddr": "ws://192.168.1.2:30005",
+        "audioMsgPort": "ws://192.168.1.2:30006",
+        "audioDataPort": "ws://192.168.1.2:30016"
+    },
+    {
+        "deviceInfo": {
+            "id": "289c3aa0-ae30-423d-b3b8-03a9109d2d91",
+            "model": "ESMD",
+            "antenna": "ADD107",
+            "serialNumber": "100100"
+        },
+        "isRec": True,
+        "isDf": True,
+        "isPscan": True,
+        "devAddress": "172.17.75.1",
+        "devMessagePort": 5555,
+        "localDataPort": 31001,
+        "dataProcAddr": "ws://192.168.1.2:30001",
+        "controlPanelAddr": "ws://192.168.1.2:30002",
+        "chartControlAddr": "ws://192.168.1.2:30003",
+        "eventsPanelAddr": "ws://192.168.1.2:30004",
+        "rawEventsAddr": "ws://192.168.1.2:30005",
+        "audioMsgPort": "ws://192.168.1.2:30006",
+        "audioDataPort": "ws://192.168.1.2:30016"
         }
     ],
-    "serverName": "point_on_pentagon_roof",
-    "description": "some words here"
+    "serverName": "point 1",
+    "description": "some user description",
+    "serverCoordinate": {
+        "latitude": 55.7522,
+        "longitude": 37.6156,
+        "altitudeKnown": True,
+        "altitude": 100.2
+    }
 }
+
+class DeviceInfo(BaseModel):
+    id: str
+    model: str
+    antenna: str
+    serialNumber: str
 
 
 class Device(BaseModel):
-    connected: bool
-    devModel: str
-    SN: str
+    deviceInfo: DeviceInfo
     isRec: bool
     isDf: bool
-    isScan: bool
+    isPscan: bool
     devAddress: str
     devMessagePort: str
     localDataPort: str
@@ -223,15 +243,23 @@ class Device(BaseModel):
     eventsPanelAddr: str
     rawEventsAddr: str
 
-class DeviceResponse(BaseModel):
+class ServerCoordinate(BaseModel):
+    latitude: float
+    longitude: float
+    altitudeKnown: bool
+    altitude: float
+
+
+class ServerResponse(BaseModel):
     devices: List[Device]
     serverName: str
     description: str
+    serverCoordinate: ServerCoordinate
 
 
-@app.get("/devices", response_model=DeviceResponse)
+@app.get("/devices", response_model=ServerResponse)
 async def answerDevices():
-    return fakeDeviceResponse
+    return fakeServerResponse
 
 @app.get("/")
 async def homepage():
