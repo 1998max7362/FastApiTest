@@ -256,12 +256,27 @@ class ServerResponse(BaseModel):
     description: str
     serverCoordinate: ServerCoordinate
 
+class Server(BaseModel):
+    devices: List[Device]
+    serverUrl: str
+    serverName: str
+    description: str
+    serverCoordinate: ServerCoordinate
+
+class ServerList(BaseModel):
+    __root__:List[Server]
+
 
 @app.get("/devices", response_model=ServerResponse)
 async def answerDevices():
     return fakeServerResponse
 
+@app.post("/servers")
+async def postServers(req: ServerList):
+    return {"res": "ok", "req": req}
+
 @app.get("/")
 async def homepage():
     data = json.dumps({'hello': 'world'})
     return data
+
