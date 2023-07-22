@@ -271,6 +271,10 @@ class ServerList(BaseModel):
 async def answerDevices():
     return fakeServerResponse
 
+@app.get("/devices2", response_model=ServerResponse)
+async def answerDevices():
+    return fakeServerResponse
+
 @app.post("/servers")
 async def postServers(req: ServerList):
     return {"res": "ok", "req": req}
