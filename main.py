@@ -166,50 +166,49 @@ def messageLogicChanger(jsonMessage):
     return jsonMessage
 
 
-
 fakeServerResponse = {
     "devices": [
-    {
-        "deviceInfo": {
-            "id": "289c3aa0-ae30-423d-b3b8-03a9109d2d91",
-            "model": "ESMD",
-            "antenna": "ADD107",
-            "serialNumber": "100100"
+        {
+            "deviceInfo": {
+                "id": "289c3aa0-ae30-423d-b3b8-03a9109d2d91",
+                "model": "ESMD",
+                "antenna": "ADD107",
+                "serialNumber": "100100"
+            },
+            "isRec": True,
+            "isDf": True,
+            "isPscan": True,
+            "devAddress": "172.17.75.1",
+            "devMessagePort": 5555,
+            "localDataPort": 31001,
+            "dataProcAddr": "ws://192.168.1.2:30001",
+            "controlPanelAddr": "ws://192.168.1.2:30002",
+            "chartControlAddr": "ws://192.168.1.2:30003",
+            "eventsPanelAddr": "ws://192.168.1.2:30004",
+            "rawEventsAddr": "ws://192.168.1.2:30005",
+            "audioMsgPort": "ws://192.168.1.2:30006",
+            "audioDataPort": "ws://192.168.1.2:30016"
         },
-        "isRec": True,
-        "isDf": True,
-        "isPscan": True,
-        "devAddress": "172.17.75.1",
-        "devMessagePort": 5555,
-        "localDataPort": 31001,
-        "dataProcAddr": "ws://192.168.1.2:30001",
-        "controlPanelAddr": "ws://192.168.1.2:30002",
-        "chartControlAddr": "ws://192.168.1.2:30003",
-        "eventsPanelAddr": "ws://192.168.1.2:30004",
-        "rawEventsAddr": "ws://192.168.1.2:30005",
-        "audioMsgPort": "ws://192.168.1.2:30006",
-        "audioDataPort": "ws://192.168.1.2:30016"
-    },
-    {
-        "deviceInfo": {
-            "id": "289c3aa0-ae30-423d-b3b8-03a9109d2d91",
-            "model": "ESMD",
-            "antenna": "ADD107",
-            "serialNumber": "100100"
-        },
-        "isRec": True,
-        "isDf": True,
-        "isPscan": True,
-        "devAddress": "172.17.75.1",
-        "devMessagePort": 5555,
-        "localDataPort": 31001,
-        "dataProcAddr": "ws://192.168.1.2:30001",
-        "controlPanelAddr": "ws://192.168.1.2:30002",
-        "chartControlAddr": "ws://192.168.1.2:30003",
-        "eventsPanelAddr": "ws://192.168.1.2:30004",
-        "rawEventsAddr": "ws://192.168.1.2:30005",
-        "audioMsgPort": "ws://192.168.1.2:30006",
-        "audioDataPort": "ws://192.168.1.2:30016"
+        {
+            "deviceInfo": {
+                "id": "289c3aa0-ae30-423d-b3b8-03a9109d2d91",
+                "model": "ESMD",
+                "antenna": "ADD107",
+                "serialNumber": "100100"
+            },
+            "isRec": True,
+            "isDf": True,
+            "isPscan": True,
+            "devAddress": "172.17.75.1",
+            "devMessagePort": 5555,
+            "localDataPort": 31001,
+            "dataProcAddr": "ws://192.168.1.2:30001",
+            "controlPanelAddr": "ws://192.168.1.2:30002",
+            "chartControlAddr": "ws://192.168.1.2:30003",
+            "eventsPanelAddr": "ws://192.168.1.2:30004",
+            "rawEventsAddr": "ws://192.168.1.2:30005",
+            "audioMsgPort": "ws://192.168.1.2:30006",
+            "audioDataPort": "ws://192.168.1.2:30016"
         }
     ],
     "serverName": "point 1",
@@ -222,115 +221,117 @@ fakeServerResponse = {
     }
 }
 
-fakeDBResponse = [{
-    "devices": [
-    {
-        "deviceInfo": {
-            "id": "289c3aa0-ae30-423d-b3b8-03a9109d2d91",
-            "model": "ESMD",
-            "antenna": "ADD107",
-            "serialNumber": "100100"
-        },
-        "isRec": True,
-        "isDf": True,
-        "isPscan": True,
-        "devAddress": "172.17.75.1",
-        "devMessagePort": 5555,
-        "localDataPort": 31001,
-        "dataProcAddr": "ws://192.168.1.2:30001",
-        "controlPanelAddr": "ws://192.168.1.2:30002",
-        "chartControlAddr": "ws://192.168.1.2:30003",
-        "eventsPanelAddr": "ws://192.168.1.2:30004",
-        "rawEventsAddr": "ws://192.168.1.2:30005",
-        "audioMsgPort": "ws://192.168.1.2:30006",
-        "audioDataPort": "ws://192.168.1.2:30016"
-    },
-    {
-        "deviceInfo": {
-            "id": "289c3aa0-ae30-423d-b3b8-03a9109d2d91",
-            "model": "ESMD",
-            "antenna": "ADD107",
-            "serialNumber": "100100"
-        },
-        "isRec": True,
-        "isDf": True,
-        "isPscan": True,
-        "devAddress": "172.17.75.1",
-        "devMessagePort": 5555,
-        "localDataPort": 31001,
-        "dataProcAddr": "ws://192.168.1.2:30001",
-        "controlPanelAddr": "ws://192.168.1.2:30002",
-        "chartControlAddr": "ws://192.168.1.2:30003",
-        "eventsPanelAddr": "ws://192.168.1.2:30004",
-        "rawEventsAddr": "ws://192.168.1.2:30005",
-        "audioMsgPort": "ws://192.168.1.2:30006",
-        "audioDataPort": "ws://192.168.1.2:30016"
+fakeDBResponse = {
+    "remoteServers":  [{
+        "devices": [
+            {
+                "deviceInfo": {
+                    "id": "289c3aa0-ae30-423d-b3b8-03a9109d2d91",
+                    "model": "ESMD",
+                    "antenna": "ADD107",
+                    "serialNumber": "100100"
+                },
+                "isRec": True,
+                "isDf": True,
+                "isPscan": True,
+                "devAddress": "172.17.75.1",
+                "devMessagePort": 5555,
+                "localDataPort": 31001,
+                "dataProcAddr": "ws://192.168.1.2:30001",
+                "controlPanelAddr": "ws://192.168.1.2:30002",
+                "chartControlAddr": "ws://192.168.1.2:30003",
+                "eventsPanelAddr": "ws://192.168.1.2:30004",
+                "rawEventsAddr": "ws://192.168.1.2:30005",
+                "audioMsgPort": "ws://192.168.1.2:30006",
+                "audioDataPort": "ws://192.168.1.2:30016"
+            },
+            {
+                "deviceInfo": {
+                    "id": "289c3aa0-ae30-423d-b3b8-03a9109d2d91",
+                    "model": "ESMD",
+                    "antenna": "ADD107",
+                    "serialNumber": "100100"
+                },
+                "isRec": True,
+                "isDf": True,
+                "isPscan": True,
+                "devAddress": "172.17.75.1",
+                "devMessagePort": 5555,
+                "localDataPort": 31001,
+                "dataProcAddr": "ws://192.168.1.2:30001",
+                "controlPanelAddr": "ws://192.168.1.2:30002",
+                "chartControlAddr": "ws://192.168.1.2:30003",
+                "eventsPanelAddr": "ws://192.168.1.2:30004",
+                "rawEventsAddr": "ws://192.168.1.2:30005",
+                "audioMsgPort": "ws://192.168.1.2:30006",
+                "audioDataPort": "ws://192.168.1.2:30016"
+            }
+        ],
+        "serverName": "point 1",
+        "description": "some user description",
+        "serverUrl": "http://127.0.0.1:8000/devices3",
+        "serverCoordinate": {
+            "latitude": 55.7522,
+            "longitude": 37.6156,
+            "altitudeKnown": True,
+            "altitude": 100.2
         }
-    ],
-    "serverName": "point 1",
-    "description": "some user description",
-    "serverUrl":"http://127.0.0.1:8000/devices2",
-    "serverCoordinate": {
-        "latitude": 55.7522,
-        "longitude": 37.6156,
-        "altitudeKnown": True,
-        "altitude": 100.2
-    }
-},{
-    "devices": [
-    {
-        "deviceInfo": {
-            "id": "289c3aa0-ae30-423d-b3b8-03a9109d2d91",
-            "model": "ESMD",
-            "antenna": "ADD107",
-            "serialNumber": "100100"
-        },
-        "isRec": True,
-        "isDf": True,
-        "isPscan": True,
-        "devAddress": "172.17.75.1",
-        "devMessagePort": 5555,
-        "localDataPort": 31001,
-        "dataProcAddr": "ws://192.168.1.2:30001",
-        "controlPanelAddr": "ws://192.168.1.2:30002",
-        "chartControlAddr": "ws://192.168.1.2:30003",
-        "eventsPanelAddr": "ws://192.168.1.2:30004",
-        "rawEventsAddr": "ws://192.168.1.2:30005",
-        "audioMsgPort": "ws://192.168.1.2:30006",
-        "audioDataPort": "ws://192.168.1.2:30016"
-    },
-    {
-        "deviceInfo": {
-            "id": "289c3aa0-ae30-423d-b3b8-03a9109d2d91",
-            "model": "ESMD",
-            "antenna": "ADD107",
-            "serialNumber": "100100"
-        },
-        "isRec": True,
-        "isDf": True,
-        "isPscan": True,
-        "devAddress": "172.17.75.1",
-        "devMessagePort": 5555,
-        "localDataPort": 31001,
-        "dataProcAddr": "ws://192.168.1.2:30001",
-        "controlPanelAddr": "ws://192.168.1.2:30002",
-        "chartControlAddr": "ws://192.168.1.2:30003",
-        "eventsPanelAddr": "ws://192.168.1.2:30004",
-        "rawEventsAddr": "ws://192.168.1.2:30005",
-        "audioMsgPort": "ws://192.168.1.2:30006",
-        "audioDataPort": "ws://192.168.1.2:30016"
+    }, {
+        "devices": [
+            {
+                "deviceInfo": {
+                    "id": "289c3aa0-ae30-423d-b3b8-03a9109d2d91",
+                    "model": "ESMD",
+                    "antenna": "ADD107",
+                    "serialNumber": "100100"
+                },
+                "isRec": True,
+                "isDf": True,
+                "isPscan": True,
+                "devAddress": "172.17.75.1",
+                "devMessagePort": 5555,
+                "localDataPort": 31001,
+                "dataProcAddr": "ws://192.168.1.2:30001",
+                "controlPanelAddr": "ws://192.168.1.2:30002",
+                "chartControlAddr": "ws://192.168.1.2:30003",
+                "eventsPanelAddr": "ws://192.168.1.2:30004",
+                "rawEventsAddr": "ws://192.168.1.2:30005",
+                "audioMsgPort": "ws://192.168.1.2:30006",
+                "audioDataPort": "ws://192.168.1.2:30016"
+            },
+            {
+                "deviceInfo": {
+                    "id": "289c3aa0-ae30-423d-b3b8-03a9109d2d91",
+                    "model": "ESMD",
+                    "antenna": "ADD107",
+                    "serialNumber": "100100"
+                },
+                "isRec": True,
+                "isDf": True,
+                "isPscan": True,
+                "devAddress": "172.17.75.1",
+                "devMessagePort": 5555,
+                "localDataPort": 31001,
+                "dataProcAddr": "ws://192.168.1.2:30001",
+                "controlPanelAddr": "ws://192.168.1.2:30002",
+                "chartControlAddr": "ws://192.168.1.2:30003",
+                "eventsPanelAddr": "ws://192.168.1.2:30004",
+                "rawEventsAddr": "ws://192.168.1.2:30005",
+                "audioMsgPort": "ws://192.168.1.2:30006",
+                "audioDataPort": "ws://192.168.1.2:30016"
+            }
+        ],
+        "serverName": "point 1",
+        "description": "some user description",
+        "serverUrl": "http://127.0.0.1:8000/devices",
+        "serverCoordinate": {
+            "latitude": 55.7522,
+            "longitude": 37.6156,
+            "altitudeKnown": True,
+            "altitude": 100.2
         }
-    ],
-    "serverName": "point 1",
-    "description": "some user description",
-    "serverUrl":"http://127.0.0.1:8000/devices",
-    "serverCoordinate": {
-        "latitude": 55.7522,
-        "longitude": 37.6156,
-        "altitudeKnown": True,
-        "altitude": 100.2
-    }
-}]
+    }]}
+
 
 class DeviceInfo(BaseModel):
     id: str
@@ -353,6 +354,7 @@ class Device(BaseModel):
     eventsPanelAddr: str
     rawEventsAddr: str
 
+
 class ServerCoordinate(BaseModel):
     latitude: float
     longitude: float
@@ -366,6 +368,7 @@ class ServerResponse(BaseModel):
     description: str
     serverCoordinate: ServerCoordinate
 
+
 class Server(BaseModel):
     devices: List[Device]
     serverUrl: str
@@ -373,28 +376,32 @@ class Server(BaseModel):
     description: str
     serverCoordinate: ServerCoordinate
 
+
 class ServerList(BaseModel):
-    __root__:List[Server]
+    remoteServers: List[Server]
 
 
 @app.get("/devices", response_model=ServerResponse)
 async def answerDevices():
     return fakeServerResponse
 
+
 @app.get("/devices2", response_model=ServerResponse)
 async def answerDevices():
     return fakeServerResponse
+
 
 @app.get("/serversFromDb", response_model=ServerList)
 async def answerDevices():
     return fakeDBResponse
 
+
 @app.post("/servers")
 async def postServers(req: ServerList):
     return {"res": "ok", "req": req}
+
 
 @app.get("/")
 async def homepage():
     data = json.dumps({'hello': 'world'})
     return data
-
