@@ -8,6 +8,7 @@ from typing import List, Optional
 from pydantic import BaseModel, Field
 from datetime import datetime
 from fastapi.middleware.cors import CORSMiddleware
+from starlette.requests import Request
 
 app = FastAPI()
 
@@ -332,6 +333,9 @@ fakeDBResponse = {
         }
     }]}
 
+class Data(BaseModel):
+    field: str
+
 
 class DeviceInfo(BaseModel):
     id: str
@@ -405,3 +409,14 @@ async def postServers(req: ServerList):
 async def homepage():
     data = json.dumps({'hello': 'world'})
     return data
+
+@app.post("/test")
+async def postRequest(request: Request):
+    print("Тестовое сообщение")
+    reqStr = await request.json()
+    print(reqStr)
+    if False:
+        jsonFile = open("data.json", "w")
+        jsonFile.write(str(reqStr))
+        jsonFile.close()
+    return "ok"
